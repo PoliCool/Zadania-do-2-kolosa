@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+
+
+int main(){
+
+    int tab[]={1,2,3,4,6};
+    int *w=&tab[0];
+    for(int i=0;i<sizeof(tab)/sizeof(tab[0]);i++) {
+    *(w+i)=*(w+i) * *(w+i);
+        cout<<"Adres: " << w+i<<endl;
+        cout<<"Wartosc: " << *(w+i)<<endl;
+    }
+    return 0;
+}
