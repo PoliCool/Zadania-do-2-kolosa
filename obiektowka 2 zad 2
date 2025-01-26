@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+class Car {
+private:
+    int Speed;
+    string Make;
+    string Model;
+    double Engine;
+public:
+
+    Car( string make,  string model, double engine) : Make(make), Model(model), Engine(engine), Speed(0) {}
+
+
+    void ZwiekszP(int wartosc) {
+        Speed = Speed + wartosc;
+        cout << "Speed: " << Speed << endl;
+    }
+    void ZmniejszP(int wartosc) {
+        if(wartosc<Speed) {
+            Speed = Speed - wartosc;
+        }else {
+            Speed = 0;
+        }
+        cout << "Speed: " << Speed << endl;
+    }
+    };
+    int main() {
+        Car s1("Skoda", "Karoq", 1.5);
+        Car s2("Citroen", "Faster", 1.8);
+        int wybor,wartosc;
+
+        while(1) {
+            Car *wybraneAuto = nullptr;
+            cout << "ktore auto chcesz wybrac? 1 - skoda, 2 - Citroen"<<endl;
+            cin >> wybor;
+            if (wybor == 1) {
+                wybraneAuto = &s1;
+            }else {
+                wybraneAuto=&s2;
+            }
+            cout << " Co chcesz zrobic? 1 - przyspiesz, 2 - zwolnij" << endl;
+            cin >> wybor;
+            if (wybor == 1) {
+                cout<< " o jaka wartosc ?"<<endl;
+                cin >>wartosc;
+                wybraneAuto->ZwiekszP(wartosc);
+            }else {
+                cout<< " o jaka wartosc ?"<<endl;
+                cin >>wartosc;
+                wybraneAuto->ZmniejszP(wartosc);
+            }
+        }
+
+
+
+        return 0;
+    }
+
